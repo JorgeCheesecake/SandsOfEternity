@@ -12,11 +12,11 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 5.0f;
     public float gravity = 9.81f;
     private Vector3 moveDirection = Vector3.zero;
+    private bool isJumping = false;
 
     void Update()
     {
-        
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = 10f;
         }
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 5f;
         }
+
 
         float horizontalinput = Input.GetAxisRaw("Horizontal");
         float verticalinput = Input.GetAxisRaw("Vertical");
@@ -43,19 +44,42 @@ public class PlayerController : MonoBehaviour
             character.Move(movedir * speed * Time.deltaTime);
         }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump"))
         {
             moveDirection.y = jumpSpeed;
+            isJumping = true;
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;
+        if (isJumping)
+        {
+            moveDirection.y -= gravity * Time.deltaTime;
+
+           //if (IsGrounded())
+           //{
+           //    isJumping = false;
+           //    moveDirection.y = 0f;
+           //}
+        }
 
         character.Move(moveDirection * Time.deltaTime);
-
     }
 
-    bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, Vector3.down, 0.1f);
-    }
+//    bool IsGrounded()
+//{
+//    float rayDistance = 0.5f;
+//
+//    Vector3 rayDirection = Vector3.down;
+//
+//    RaycastHit hit;
+//    if (Physics.Raycast(transform.position, rayDirection, out hit, rayDistance))
+//    {
+//        // Verifica si el rayo golpeó el suelo
+//        if (hit.distance < rayDistance)
+//        {
+//            return true;
+//        }
+//    }
+//
+//    return false;
+//}
 }
