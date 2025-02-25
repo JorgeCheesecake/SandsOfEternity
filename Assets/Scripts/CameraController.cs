@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class CameraController : MonoBehaviour 
+public class CameraController : MonoBehaviour
 {
 
 
