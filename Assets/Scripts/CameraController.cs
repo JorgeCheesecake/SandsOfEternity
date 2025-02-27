@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
 
 
-    public bool clickToMoveCamera = false;
+    public bool clickToMoveCamera = false; 
 
     public bool canZoom = true;
  
