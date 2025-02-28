@@ -13,7 +13,7 @@ public class ThirdPersonController : MonoBehaviour
     public float sprintAdittion = 3.5f;
      
     public float jumpForce = 18f; 
-
+     
     public float jumpTime = 0.85f;
 
     public float gravity = 9.8f;
