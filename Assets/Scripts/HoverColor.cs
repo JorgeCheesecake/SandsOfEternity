@@ -1,40 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;  // Asegúrate de que tienes esta directiva de using
+using UnityEngine.UI;  // Asegï¿½rate de que tienes esta directiva de using
 
-public class HoverColor : MonoBehaviour
+public class HoverColor : MonoBehaviour 
 {
-    public Button buttonPlayInicion;  // Nombre de la variable puede estar relacionado con la funcionalidad de este botón
-    public Color wantedColor;  // Usamos Color (con C mayúscula)
-    private Color originalColor;  // Usamos Color también aquí
-    private ColorBlock cb;  // Aquí debería ser ColorBlock (con C mayúscula)
+    public Button buttonPlayInicion;  // Nombre de la variable puede estar relacionado con la funcionalidad de este botï¿½n
+    public Color wantedColor;  // Usamos Color (con C mayï¿½scula)
+    private Color originalColor;  // Usamos Color tambiï¿½n aquï¿½
+    private ColorBlock cb;  // Aquï¿½ deberï¿½a ser ColorBlock (con C mayï¿½scula)
 
     // Start is called before the first frame update
     void Start()
     {
-        cb = buttonPlayInicion.colors;  // Aquí asignamos los colores del botón
+        cb = buttonPlayInicion.colors;  // Aquï¿½ asignamos los colores del botï¿½n
         originalColor = cb.selectedColor;  // Obtenemos el color original
     }
 
     // Update is called once per frame
     void Update()
     {
-        // No es necesario hacer nada aquí por ahora
+        // No es necesario hacer nada aquï¿½ por ahora
     }
 
-    // Método para cambiar el color cuando se pasa el ratón sobre el botón
+    // Mï¿½todo para cambiar el color cuando se pasa el ratï¿½n sobre el botï¿½n
     public void changeWhenHover()
     {
-        cb.selectedColor = wantedColor;  // Asignamos el color deseado cuando el ratón pasa sobre el botón
-        buttonPlayInicion.colors = cb;  // Aplicamos los cambios al botón
+        cb.selectedColor = wantedColor;  // Asignamos el color deseado cuando el ratï¿½n pasa sobre el botï¿½n
+        buttonPlayInicion.colors = cb;  // Aplicamos los cambios al botï¿½n
     }
 
-    // Método para restaurar el color original cuando el ratón deja el botón
+    // Mï¿½todo para restaurar el color original cuando el ratï¿½n deja el botï¿½n
     public void changeWhenLeaves()
     {
         cb.selectedColor = originalColor;  // Restauramos el color original
-        buttonPlayInicion.colors = cb;  // Aplicamos los cambios al botón
+        buttonPlayInicion.colors = cb;  // Aplicamos los cambios al botï¿½n
     }
 }
 
