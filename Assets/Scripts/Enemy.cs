@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if(Vector3.Distance(transform.position, target.transform.position) > 1 && !atacando)
+            if(Vector3.Distance(transform.position, target.transform.position) > 2 && !atacando)
             {
                 var lookpos = target.transform.position - transform.position;
                 lookpos.y = 0;
@@ -70,9 +70,9 @@ public class Enemy : MonoBehaviour
                 ani.SetBool("Walk", false);
 
                 ani.SetBool("run", true);
-                transform.Translate(Vector3.forward * 2 * Time.deltaTime);
+                transform.Translate(Vector3.forward * 1 * Time.deltaTime);
 
-                ani.Setbool("Attack", false);
+                ani.SetBool("Attack", false);
             }      
             else
             {
@@ -90,6 +90,7 @@ public class Enemy : MonoBehaviour
     {
         ani.SetBool("Attack", false);
         atacando = false;
+        
     }
 
 
@@ -99,5 +100,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Comportamiento();
+        Debug.Log(Vector3.Distance(transform.position, target.transform.position));
     }
 }
