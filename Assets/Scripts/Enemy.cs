@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if(Vector3.Distance(transform.position, target.transform.position) > 2 && !atacando)
+            if(Vector3.Distance(transform.position, target.transform.position) > 2)
             {
                 var lookpos = target.transform.position - transform.position;
                 lookpos.y = 0;
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
 
                 ani.SetBool("Attack", false);
             }      
-            else
+            else if (Vector3.Distance(transform.position, target.transform.position) < 2)
             {
                 ani.SetBool("run", false);
                 ani.SetBool("Walk", false);

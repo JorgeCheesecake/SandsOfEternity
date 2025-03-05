@@ -289,12 +289,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &856908278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7891480558003242497, guid: 9f30044b7cf39cf419be659aba08f373,
-    type: 3}
-  m_PrefabInstance: {fileID: 1567562177640800008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &862618957
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +382,12 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 7606c0c89fb9b9b4594e62233f5ef3a5, type: 2}
   m_EnableTreeColliders: 1
+--- !u!1 &1620002093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3773474828176737390, guid: 9f30044b7cf39cf419be659aba08f373,
+    type: 3}
+  m_PrefabInstance: {fileID: 1567562177640800008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6681007298034432
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,8 +698,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1691653215395541471}
   - component: {fileID: 4727048386873764773}
-  - component: {fileID: 4727048386873764775}
   - component: {fileID: 4727048386873764776}
+  - component: {fileID: 4727048386873764777}
   m_Layer: 0
   m_Name: Momia parada
   m_TagString: Untagged
@@ -1221,28 +1221,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &4727048386873764775
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031727125576035173}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &4727048386873764776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,8 +1238,29 @@ MonoBehaviour:
   ani: {fileID: 4727048386873764773}
   angulo: {x: 0, y: 0, z: 0, w: 0}
   grado: 0
-  target: {fileID: 856908278}
+  target: {fileID: 1620002093}
   atacando: 0
+--- !u!65 &4727048386873764777
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031727125576035173}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.77, y: 3.874578, z: 1.43}
+  m_Center: {x: 0.18000007, y: 1.9722888, z: 0.33999997}
 --- !u!4 &4879357795520006449
 Transform:
   m_ObjectHideFlags: 0
@@ -1782,8 +1781,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6568965623475474763}
   m_AABB:
-    m_Center: {x: -0.052303463, y: -0.22452897, z: 0.45671356}
-    m_Extent: {x: 1.0341223, y: 2.1071396, z: 0.91996}
+    m_Center: {x: -0.052303433, y: -0.08802259, z: 0.45671356}
+    m_Extent: {x: 1.0341223, y: 1.9706331, z: 0.91996}
   m_DirtyAABB: 0
 --- !u!4 &8273077336956612521
 Transform:
