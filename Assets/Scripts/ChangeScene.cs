@@ -7,7 +7,7 @@ public class ChangeScene : MonoBehaviour
     public string sceneName;
 
     // Este m�todo cambiar� a la escena que se haya especificado en el campo 'sceneName'
-    public void ChangeToScene()
+    public void ChangeToScene() 
     {
         // Cambiar a la escena especificada
         SceneManager.LoadScene(sceneName); 
