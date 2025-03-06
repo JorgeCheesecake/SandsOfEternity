@@ -45,6 +45,13 @@ public class ThirdPersonController : MonoBehaviour
             Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
     }
 
+    void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("arma"))
+        {
+            print ("Daño");
+        }
+    }
 
 
     void Update()
