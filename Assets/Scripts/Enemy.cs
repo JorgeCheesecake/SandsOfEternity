@@ -13,13 +13,7 @@ public class Enemy : MonoBehaviour
     public bool atacando;
 
 
-    void OnTriggerEnter(Collider coll)
-    {
-        if (coll.CompareTag("arma"))
-        {
-            print ("Daño");
-        }
-    }
+    
     
     
     // Start is called before the first frame update
@@ -100,6 +94,5 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Comportamiento();
-        Debug.Log(Vector3.Distance(transform.position, target.transform.position));
     }
 }
