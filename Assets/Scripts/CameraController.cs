@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
  
     public float sensitivity = 5f; 
 
-    public Vector2 cameraLimit = new Vector2(-45, 40);
+    public Vector2 cameraLimit = new Vector2(-45, 40); 
 
     float mouseX;
     float mouseY;
