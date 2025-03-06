@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     public bool canZoom = true;
  
     public float sensitivity = 5f; 
-
+ 
     public Vector2 cameraLimit = new Vector2(-45, 40);
 
     float mouseX;
