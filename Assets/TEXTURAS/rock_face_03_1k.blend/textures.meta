@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/TEXTURAS/rock_face_03_1k.blend/textures.meta
 guid: ff00e69c10876244498d65176594032b
+========
+guid: 8edd3223022eff54aabae6d84ea131bb
+>>>>>>>> Stashed changes:Assets/TEXTURAS/gravelly_sand_1k.blend.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
