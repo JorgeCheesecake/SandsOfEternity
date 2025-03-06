@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if(Vector3.Distance(transform.position, target.transform.position) > 2)
+            if(Vector3.Distance(transform.position, target.transform.position) > 1.3f)
             {
                 var lookpos = target.transform.position - transform.position;
                 lookpos.y = 0;
