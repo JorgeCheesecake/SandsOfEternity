@@ -16,6 +16,7 @@ public class ThirdPersonController : MonoBehaviour
     bool isJumping = false;
     bool isSprinting = false;
     bool isCrouching = false;
+    public GameObject espada;
 
     float inputHorizontal;
     float inputVertical;
@@ -36,6 +37,8 @@ public class ThirdPersonController : MonoBehaviour
 
         if (animator == null)
             Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
+
+        espada.SetActive(false);
     }
 
     void OnTriggerEnter(Collider coll)
@@ -74,10 +77,26 @@ public class ThirdPersonController : MonoBehaviour
             if (cc.isGrounded && animator != null)
             {
                 animator.SetBool("crouch", isCrouching);
-
-                animator.SetBool("walk", inputHorizontal != 0 || inputVertical != 0);
                 animator.SetBool("run", isSprinting);
             }
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("attack", true);
+        }
+        else
+        {
+            animator.SetBool("attack", false);
+        }
+
+        if (inputHorizontal != 0 || inputVertical != 0)
+        {
+            animator.SetBool("walk", true);
+        }
+        else
+        {
+            animator.SetBool("walk", false);
         }
 
         if (inputJump)
@@ -91,6 +110,12 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         HeadHittingDetect();
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            espada.SetActive(true);
+            animator.SetBool("arma", true);
+        }
     }
 
     private void FixedUpdate()
@@ -163,6 +188,11 @@ public class ThirdPersonController : MonoBehaviour
 
         Vector3 moviment = verticalDirection + horizontalDirection;
         cc.Move(moviment);
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            ani.SetBool("arma", true);
+        }
     }
 
     void HeadHittingDetect()
