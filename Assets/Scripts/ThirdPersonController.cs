@@ -26,11 +26,16 @@ public class ThirdPersonController : MonoBehaviour
     bool inputSprint;
 
     public Slider Barravida;
+    public Slider sprintBarSlider;
+
+    public float sprintBarMax = 100f;
+    public float sprintBarRegenerationRate = 10f;
+    private float sprintBar;
 
     Animator animator;
     CharacterController cc;
 
-    private float groundDetectionDelay = 0.1f; // retardo de 0.1 segundos
+    private float groundDetectionDelay = 0.1f;
     private float lastGroundDetectionTime = 0f;
 
     bool morir = false;
@@ -42,6 +47,12 @@ public class ThirdPersonController : MonoBehaviour
 
         if (animator == null)
             Debug.LogWarning("Hey buddy, you don't have the Animator component in your player. Without it, the animations won't work.");
+
+        espada.SetActive(false); // Inicializa espada en false
+
+        sprintBar = sprintBarMax;
+        sprintBarSlider.maxValue = sprintBarMax;
+        sprintBarSlider.value = sprintBarMax;
     }
 
     void OnTriggerEnter(Collider coll)
@@ -64,16 +75,29 @@ public class ThirdPersonController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.JoystickButton1))
                 isCrouching = true;
             else
-            {
                 isCrouching = false;
-            }
 
-            if (inputSprint)
+            // Sprint solo si hay energía y te estás moviendo
+            if (inputSprint && sprintBar > 0 && (inputHorizontal != 0 || inputVertical != 0))
+            {
                 isSprinting = true;
+                sprintBar -= 30f * Time.deltaTime; // Reducir sprint
+
+                if (sprintBar < 0) sprintBar = 0;
+            }
             else
             {
                 isSprinting = false;
+                // Regenerar sprint si NO estás corriendo
+                if (sprintBar < sprintBarMax)
+                {
+                    sprintBar += sprintBarRegenerationRate * Time.deltaTime;
+                    if (sprintBar > sprintBarMax) sprintBar = sprintBarMax;
+                }
             }
+
+            // Actualizar barra de sprint en la UI
+            sprintBarSlider.value = sprintBar;
 
             if (Time.time - lastGroundDetectionTime >= groundDetectionDelay)
             {
@@ -87,22 +111,14 @@ public class ThirdPersonController : MonoBehaviour
             }
 
             if (Input.GetMouseButtonDown(0))
-            {
                 animator.SetBool("attack", true);
-            }
             else
-            {
                 animator.SetBool("attack", false);
-            }
 
             if (inputHorizontal != 0 || inputVertical != 0)
-            {
                 animator.SetBool("walk", true);
-            }
             else
-            {
                 animator.SetBool("walk", false);
-            }
 
             if (inputJump)
             {
@@ -118,18 +134,12 @@ public class ThirdPersonController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                espada.SetActive(true);
+                espada.SetActive(true); // Muestra la espada al pulsar la tecla E
                 animator.SetBool("arma", true);
-            }
-            else
-            {
-                espada.SetActive(false);
             }
 
             if (Barravida.value < 0)
-            {
                 Barravida.value = 0;
-            }
 
             if (Barravida.value == 0)
             {
@@ -144,30 +154,17 @@ public class ThirdPersonController : MonoBehaviour
         if (!morir)
         {
             float velocityAdittion = 0;
-            if (isSprinting == true)
-                velocity = 5f;
-            else if (isSprinting == false)
+
+            if (isSprinting)
+                velocity = 8f;
+            else
                 velocity = 3f;
 
-            if (isCrouching == true)
+            if (isCrouching)
                 velocity = 1f;
-            else if (isCrouching == false)
-            {
-                velocity = 3f;
-            }
 
-            if (isSprinting == true && isCrouching == true)
-            {
+            if (isSprinting && isCrouching)
                 velocity = 2f;
-            }
-            else if (isSprinting == false && isCrouching == true)
-            {
-                velocity = 1f;
-            }
-            else if (isSprinting == true && isCrouching == false)
-            {
-                velocity = 5f;
-            }
 
             float directionX = inputHorizontal * (velocity + velocityAdittion) * Time.deltaTime;
             float directionZ = inputVertical * (velocity + velocityAdittion) * Time.deltaTime;
@@ -211,11 +208,6 @@ public class ThirdPersonController : MonoBehaviour
 
             Vector3 moviment = verticalDirection + horizontalDirection;
             cc.Move(moviment);
-
-            if (Input.GetKey(KeyCode.E))
-            {
-                ani.SetBool("arma", true);
-            }
         }
     }
 
