@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public Slider slider;
     public float velocidad = 1.0f; // Velocidad del enemigo
     private Rigidbody rb; // Rigidbody del enemigo
+    public GameObject barrera;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
         ani = GetComponent<Animator>();
         target = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>(); // Obtener el Rigidbody del enemigo
+        barrera.SetActive(false);
     }
 
     public void Comportamiento()
@@ -86,12 +88,19 @@ public class Enemy : MonoBehaviour
     {
         slider.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
+        barrera.SetActive(false);
+
     }
 
     public void Final_ani()
     {
         ani.SetBool("Attack", false);
         atacando = false;
+    }
+
+    public void ApareceBarrera()
+    {
+        barrera.SetActive(true);
     }
 
     // Update is called once per frame
