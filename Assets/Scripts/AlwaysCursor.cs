@@ -5,7 +5,7 @@ using UnityEngine;
 public class AlwaysCursor : MonoBehaviour
 {
     // Start es llamado antes del primer frame de actualización
-    void Start()
+    void Start() 
     {
         // Configura el cursor para que siempre esté visible
         Cursor.visible = true;
