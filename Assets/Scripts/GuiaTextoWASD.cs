@@ -7,7 +7,7 @@ public class GuiaTextoWASD : MonoBehaviour
 {
     public TextMeshProUGUI texto;
     public float tiempoMostrado = 2f;
-    public float tiempoParaOcultar = 2f;
+    public float tiempoParaOcultar = 1f;
 
     void Start()
     {
