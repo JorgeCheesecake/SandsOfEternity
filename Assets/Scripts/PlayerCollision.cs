@@ -9,7 +9,7 @@ public class PlayerColission : MonoBehaviour
 
     void OnTriggerStay(Collider obj)
     {
-        if(obj.gameObject.tag == "Box")
+        if(obj.gameObject.tag == "Cofre")
         {
             CanOpen = true;
 
@@ -22,13 +22,13 @@ public class PlayerColission : MonoBehaviour
 
     void OnTriggerExit(Collider obj)
     {
-        if (obj.gameObject.tag == "Box")
+        if (obj.gameObject.tag == "Cofre")
         {
             CanOpen = false;
         }
     }  
 
-    public void OpenBox()
+    public void OpenCofre()
     {
         if (CanOpen == true)
         {
