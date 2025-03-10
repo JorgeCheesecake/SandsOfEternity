@@ -13,20 +13,26 @@ public class CameraController : MonoBehaviour
     float mouseX;
     float mouseY;
     float offsetDistanceY;
+    public Animator anim;
 
     Transform player;
 
     void Start()
-    {
-        player = GameObject.FindWithTag("Player").transform;
-        offsetDistanceY = transform.position.y;
+{
+    player = GameObject.FindWithTag("Player").transform;
+    offsetDistanceY = transform.position.y;
 
-        if (!clickToMoveCamera)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+    if (!clickToMoveCamera && !anim.GetBool("morir"))
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
+    if (anim.GetBool("morir"))
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+}
 
     void Update()
     {

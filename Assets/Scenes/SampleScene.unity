@@ -1545,6 +1545,12 @@ MonoBehaviour:
   jumpForce: 18
   jumpTime: 0.85
   gravity: 9.8
+  ani: {fileID: 0}
+  espada: {fileID: 0}
+  Barravida: {fileID: 0}
+  sprintBarSlider: {fileID: 0}
+  sprintBarMax: 100
+  sprintBarRegenerationRate: 10
 --- !u!114 &245081790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3018,8 +3024,6 @@ MonoBehaviour:
   canZoom: 1
   sensitivity: 5
   cameraLimit: {x: -45, y: 40}
-  cameraDistance: 5
-  collisionOffset: 0.2
   collisionMask:
     serializedVersion: 2
     m_Bits: 4294967295

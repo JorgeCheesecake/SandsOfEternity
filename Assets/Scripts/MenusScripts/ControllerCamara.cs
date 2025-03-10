@@ -6,9 +6,6 @@ public class ControllerCamara : MonoBehaviour
     public bool canZoom = true;
     public float sensitivity = 5f;
     public Vector2 cameraLimit = new Vector2(-45, 40);
-
-    public float cameraDistance = 5f;
-    public float collisionOffset = 0.2f;
     public LayerMask collisionMask;
 
     float mouseX;
@@ -44,16 +41,6 @@ public class ControllerCamara : MonoBehaviour
         //Collisiones de la camara NOTOCAR
         Vector3 pivot = player.position + Vector3.up * offsetDistanceY;
         Vector3 direction = (transform.rotation * new Vector3(0, 0, -1)).normalized;
-        Vector3 desiredPosition = pivot + direction * cameraDistance;
-
-        if (Physics.Raycast(pivot, direction, out RaycastHit hit, cameraDistance, collisionMask))
-        {
-            transform.position = pivot + direction * (hit.distance - collisionOffset);
-        }
-        else
-        {
-            transform.position = desiredPosition;
-        }
     }
 
     public static void LockCursor(bool lockCursor)
