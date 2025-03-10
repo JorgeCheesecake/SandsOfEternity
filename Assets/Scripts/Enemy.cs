@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         ani = GetComponent<Animator>();
         target = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>(); // Obtener el Rigidbody del enemigo
