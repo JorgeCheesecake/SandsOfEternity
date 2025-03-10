@@ -36,7 +36,7 @@ public class Quality : MonoBehaviour
         PlayerPrefs.SetInt("numeroDeQuality", nivelCalidad); 
         quality = nivelCalidad;
 
-        Debug.Log("Calidad cambiada a: " + qualityNames[nivelCalidad]);
+        
     }
 }
 

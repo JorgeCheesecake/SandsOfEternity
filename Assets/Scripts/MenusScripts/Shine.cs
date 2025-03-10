@@ -11,7 +11,8 @@ public class Shine : MonoBehaviour
 
     void Start()
     {
-        slider.value = Mathf.Clamp(PlayerPrefs.GetFloat("brillo", 0.7f), 0.2f, 0.8f);
+        sliderValue = Mathf.Clamp(PlayerPrefs.GetFloat("brillo", 0.7f), 0.2f, 0.8f);
+        slider.value = sliderValue;
         UpdateBrightness();
     }
 

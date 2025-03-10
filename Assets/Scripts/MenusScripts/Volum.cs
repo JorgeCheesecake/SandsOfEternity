@@ -37,8 +37,5 @@ public class Volum : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        
-    }
+  
 }
