@@ -9,9 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/ESCENARIOMERCH1.unity
-    guid: b2ffbe54d141021418dd5989ed56cd6a
+    path: Assets/Scenes/MENUSCENES/MENUPRINCIPAL.unity
+    guid: 8a788daf823c9df438b0c3c07eadea1e
   - enabled: 1
-    path: Assets/Scenes/Continuara.unity
-    guid: 2cfd2e59beeec1849a4d321e0f9b6706
+    path: Assets/Scenes/MENUSCENES/MENU2.unity
+    guid: 13e28e7d9a7338c47ba64a1da0843087
+  - enabled: 1
+    path: Assets/Scenes/MENUSCENES/OPTIONS.unity
+    guid: eb1ebfc99a20b5347b130653dc14caa0
+  - enabled: 1
+    path: Assets/Scenes/MENUSCENES/CREDITS.unity
+    guid: 662f3d3323bf2ce43a5954367301fe62
+  - enabled: 1
+    path: Assets/Scenes/MENUSCENES/PAUSE.unity
+    guid: 9b2c48fde26928346835d75533eb1ffd
+  - enabled: 1
+    path: Assets/Scenes/MENUSCENES/GAMEOVER.unity
+    guid: b599b7df20bdcc0418702afc6eea5278
   m_configObjects: {}
