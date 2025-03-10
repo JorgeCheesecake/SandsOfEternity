@@ -106,8 +106,16 @@ public class ThirdPersonController : MonoBehaviour
                 if (cc.isGrounded && animator != null)
                 {
                     animator.SetBool("crouch", isCrouching);
-                    animator.SetBool("run", isSprinting);
                 }
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift) && sprintBarSlider.value > 0)
+            {
+                ani.SetBool("run", true);
+            }
+            else
+            {
+                ani.SetBool("run", false);
             }
 
             if (Input.GetMouseButtonDown(0))
